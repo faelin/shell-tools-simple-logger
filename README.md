@@ -1,9 +1,7 @@
-<p style="text-align: center;">
-<h1>INJECT LOGGER</h1>
+# INJECT LOGGER</h1>
 
-Simple Zsh utility to inject logging
-into your scripts.
-</p>
+Simple Zsh utility to inject logging into your scripts.
+
 
 ##   INSTALLATION:
 
@@ -14,7 +12,7 @@ actual path to the Inject Logger repo!).
 Now you can call log commands!
 
 
-###   COMMANDS:
+##   COMMANDS:
 
      usage:  <command> [message]
        
@@ -34,7 +32,7 @@ Now you can call log commands!
                     Log-level: 3
 
 
-###   CONFIGURATION:
+##   CONFIGURATION:
 
 
       log_source [title]
