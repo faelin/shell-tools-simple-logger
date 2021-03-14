@@ -49,7 +49,7 @@ Now you can call log commands!
           for each logging command above. Commands with a threshold
           above the currently configured level will not trigger.
 
-          DEFAULT VALUE: "1"
+          DEFAULT VALUE: "0"
 
           NAMED VALUES:
              1 - "warn", "error"
