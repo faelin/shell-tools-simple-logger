@@ -92,7 +92,7 @@ log_level () {
 
     debug "log_level for '${log_source}' is ${log_level[$log_source]}"
   else
-    [ -n "${log_level[$log_source]}" ] && echo "${log_level[$log_source]}" || echo '1'
+    [ -n "${log_level[$log_source]}" ] && echo "${log_level[$log_source]}" || echo '0'
   fi
 
   return 0
