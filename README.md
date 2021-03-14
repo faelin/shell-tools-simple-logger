@@ -56,3 +56,15 @@ Now you can call log commands!
              2 - "state", "log"
              3 - "debug", "stack"
 
+
+      Colors Settings:
+
+          You can also set the color of any log type by settings any
+          of the follow control variables using ANSI color codes
+          (values shown are the defaults):
+
+          LOG_COLOR_RESET='\033[0m'
+          LOG_WARN_COLOR='\033[38;5;124m'
+          LOG_STATE_COLOR='\033[0m'
+          LOG_DEBUG_COLOR='\033[38;5;34m'
+          LOG_STACK_COLOR='\033[38;5;140m'

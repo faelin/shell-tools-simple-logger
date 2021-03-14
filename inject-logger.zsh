@@ -61,6 +61,19 @@
 #             2 - "state", "log"                                       #
 #             3 - "debug", "stack"                                     #
 #                                                                      #
+#                                                                      #
+#      Colors Settings:                                                #
+#                                                                      #
+#          You can also set the color of any log type by settings any  #
+#          of the follow control variables using ANSI color codes      #
+#          (values shown are the defaults):                            #
+#                                                                      #
+#          LOG_COLOR_RESET='\033[0m'                                   #
+#          LOG_WARN_COLOR='\033[38;5;124m'                             #
+#          LOG_STATE_COLOR='\033[0m'                                   #
+#          LOG_DEBUG_COLOR='\033[38;5;34m'                             #
+#          LOG_STACK_COLOR='\033[38;5;140m'                            #
+#                                                                      #
 ########################################################################
 
 
@@ -95,13 +108,13 @@ log_source () {
   return 0
 }
 
-LOG_WARN_COLOR='\033[38;5;124m'
-LOG_STATE_COLOR='\033[0m'
-LOG_DEBUG_COLOR='\033[38;5;34m'
-LOG_STACK_COLOR='\033[38;5;140m'
-LOG_COLOR_RESET='\033[0m'
-warn  () { [[ $(log_level) -gt 0 ]] && echo "${LOG_WARN_COLOR}[$(log_source)] $@${LOG_COLOR_RESET}" >&2 || return 1 }
-state () { [[ $(log_level) -gt 1 ]] && echo "${LOG_STATE_COLOR}[$(basename "${$(log_source)%%:*}")] $@${LOG_COLOR_RESET}" >&2 || return 1 }
-debug () { [[ $(log_level) -gt 2 ]] && echo "${LOG_DEBUG_COLOR}[${$(log_source)%%:*}:${funcfiletrace[1]##*:}$([ -n "${funcstack[2]}" ] && echo " (${funcstack[2]})")] $@${LOG_COLOR_RESET}" >&2 || return 1 }
-stack () { [[ $(log_level) -gt 2 ]] && echo "${LOG_STACK_COLOR}> ${funcfiletrace[1]}$([[ $# -gt 0 ]] && echo " >> \"$@\"")\n  ${(j:\n  :)funcfiletrace[@]:1:-1}${LOG_COLOR_RESET}" >&2 || return 1 }
+export LOG_COLOR_RESET='\033[0m'
+export LOG_WARN_COLOR='\033[38;5;124m'
+export LOG_STATE_COLOR='\033[0m'
+export LOG_DEBUG_COLOR='\033[38;5;34m'
+export LOG_STACK_COLOR='\033[38;5;140m'
+warn  () { [[ `log_level` -gt 0 ]] && echo "${LOG_WARN_COLOR}[$(log_source)] $@${LOG_COLOR_RESET}" >&2 || return 1 }
+state () { [[ `log_level` -gt 1 ]] && echo "${LOG_STATE_COLOR}[$(basename "${$(log_source)%%:*}")] $@${LOG_COLOR_RESET}" >&2 || return 1 }
+debug () { [[ `log_level` -gt 2 ]] && echo "${LOG_DEBUG_COLOR}[${$(log_source)%%:*}$([ -n "${funcstack[2]}" ] && echo "::${funcstack[2]}"):${funcfiletrace[1]##*:}] $@${LOG_COLOR_RESET}" >&2 || return 1 }
+stack () { [[ `log_level` -gt 2 ]] && echo "${LOG_STACK_COLOR}> ${funcfiletrace[1]}$([[ $# -gt 0 ]] && echo " >> \"$@\"")\n  ${(j:\n  :)funcfiletrace[@]:1:-1}${LOG_COLOR_RESET}" >&2 || return 1 }
 
