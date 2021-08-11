@@ -62,6 +62,12 @@
 #             3 - "debug", "stack"                                     #
 #                                                                      #
 #                                                                      #
+#      log_destination [file]                                          #
+#                                                                      #
+#          Sets an output file. All simple-logger output will be       #
+#          recorded in the indicated file (if one is set).             #
+#                                                                      #                                                                      #
+#                                                                      #
 #      Colors Settings:                                                #
 #                                                                      #
 #          You can also set the color of any log type by settings any  #
