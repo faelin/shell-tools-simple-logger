@@ -70,7 +70,7 @@
 #                                                                      #
 #      Colors Settings:                                                #
 #                                                                      #
-#          You can also set the color of any log type by settings any  #
+#          You can also set the color of any log type by setting any   #
 #          of the follow control variables using ANSI color codes      #
 #          (values shown are the defaults):                            #
 #                                                                      #
