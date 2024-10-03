@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-zmodload "zsh/parameter" 
+# zmodload "zsh/parameter" 
 
 # get/set the log-severity level
 declare -Ag log_level
